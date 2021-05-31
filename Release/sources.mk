@@ -115,4 +115,5 @@ SUBDIRS := \
 Apps \
 FuzzyControl \
 OLED \
+PathTrack \
 

@@ -40,9 +40,9 @@ namespace fuzzy {
 
 		x = x + period / 6 * (K.col(0) + 2 * K.col(1) + 2 * K.col(2) + K.col(3));
 		
-		Car::parkSimParam.x = x[0];
-		Car::parkSimParam.y = x[1];
-		Car::parkSimParam.theta = x[2];
+		carTask::parkSimParam.x = x[0];
+		carTask::parkSimParam.y = x[1];
+		carTask::parkSimParam.theta = x[2];
 
 //		float fuzzyInput[] = { x[0],x[1],x[2] };
 //		if (method == 0)   //选择泊车方式

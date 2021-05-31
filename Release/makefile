@@ -4,7 +4,7 @@
 
 SHELL = cmd.exe
 
-CG_TOOL_ROOT := D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS
+CG_TOOL_ROOT := D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS
 
 GEN_OPTS__FLAG := 
 GEN_CMDS__FLAG := 
@@ -17,6 +17,7 @@ ORDERED_OBJS += \
 "./Apps/Encoder.obj" \
 "./Apps/Motor.obj" \
 "./Apps/PIDController.obj" \
+"./Apps/Task.obj" \
 "./Apps/cJSON.obj" \
 "./Apps/motor_timer.obj" \
 "./Apps/my_uart.obj" \
@@ -27,6 +28,8 @@ ORDERED_OBJS += \
 "./FuzzyControl/MembershipFuction.obj" \
 "./OLED/MyOLED.obj" \
 "./OLED/MyOledFont.obj" \
+"./PathTrack/PathGenerator.obj" \
+"./PathTrack/PathTrackSim.obj" \
 "../msp432p401r.cmd" \
 $(GEN_CMDS__FLAG) \
 -llibc.a \
@@ -43,10 +46,12 @@ RMDIR := RMDIR /S/Q
 -include Apps/subdir_vars.mk
 -include FuzzyControl/subdir_vars.mk
 -include OLED/subdir_vars.mk
+-include PathTrack/subdir_vars.mk
 -include subdir_rules.mk
 -include Apps/subdir_rules.mk
 -include FuzzyControl/subdir_rules.mk
 -include OLED/subdir_rules.mk
+-include PathTrack/subdir_rules.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -156,30 +161,30 @@ BIN_OUTPUTS__QUOTED += \
 
 
 # All Target
-all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+all: $(OBJS) $(CMD_SRCS) $(LDS_SRCS) $(GEN_CMDS)
 	@$(MAKE) --no-print-directory -Onone "CarMSP432.out"
 
 # Tool invocations
-CarMSP432.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+CarMSP432.out: $(OBJS) $(CMD_SRCS) $(LDS_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: ARM Linker'
-	"D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me -O2 --advice:power="all" --define=__MSP432P401R__ --define=ccs --c11 --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"CarMSP432.map" --heap_size=2048 --stack_size=4096 -i"D:/software/ccs930/ccs/ccs_base/arm/include" -i"D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/lib" -i"D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="CarMSP432_linkInfo.xml" --rom_model -o "CarMSP432.out" $(ORDERED_OBJS)
+	"D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me -O2 --opt_for_speed=5 --advice:power="all" --define=__MSP432P401R__ --define=ccs --c11 --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"CarMSP432.map" --heap_size=8192 --stack_size=16384 -i"D:/software/ccs930/ccs/ccs_base/arm/include" -i"D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/lib" -i"D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="CarMSP432_linkInfo.xml" --rom_model -o "CarMSP432.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
 CarMSP432.hex: $(EXE_OUTPUTS)
 	@echo 'Building files: $(strip $(EXE_OUTPUTS__QUOTED))'
 	@echo 'Invoking: ARM Hex Utility'
-	"D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/bin/armhex" --memwidth=8 --romwidth=8 -o "CarMSP432.hex" $(EXE_OUTPUTS__QUOTED)
+	"D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/bin/armhex" --memwidth=8 --romwidth=8 -o "CarMSP432.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $(strip $(EXE_OUTPUTS__QUOTED))'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" "startup_msp432p401r_ccs.obj" "system_msp432p401r.obj" "Apps\Car.obj" "Apps\Encoder.obj" "Apps\Motor.obj" "Apps\PIDController.obj" "Apps\cJSON.obj" "Apps\motor_timer.obj" "Apps\my_uart.obj" "FuzzyControl\CarFuzzy.obj" "FuzzyControl\CarSim.obj" "FuzzyControl\FuzzyController.obj" "FuzzyControl\FuzzyVar.obj" "FuzzyControl\MembershipFuction.obj" "OLED\MyOLED.obj" "OLED\MyOledFont.obj" 
+	-$(RM) "main.obj" "startup_msp432p401r_ccs.obj" "system_msp432p401r.obj" "Apps\Car.obj" "Apps\Encoder.obj" "Apps\Motor.obj" "Apps\PIDController.obj" "Apps\Task.obj" "Apps\cJSON.obj" "Apps\motor_timer.obj" "Apps\my_uart.obj" "FuzzyControl\CarFuzzy.obj" "FuzzyControl\CarSim.obj" "FuzzyControl\FuzzyController.obj" "FuzzyControl\FuzzyVar.obj" "FuzzyControl\MembershipFuction.obj" "OLED\MyOLED.obj" "OLED\MyOledFont.obj" "PathTrack\PathGenerator.obj" "PathTrack\PathTrackSim.obj" 
 	-$(RM) "startup_msp432p401r_ccs.d" "system_msp432p401r.d" "Apps\cJSON.d" "Apps\my_uart.d" "OLED\MyOLED.d" "OLED\MyOledFont.d" 
-	-$(RM) "main.d" "Apps\Car.d" "Apps\Encoder.d" "Apps\Motor.d" "Apps\PIDController.d" "Apps\motor_timer.d" "FuzzyControl\CarFuzzy.d" "FuzzyControl\CarSim.d" "FuzzyControl\FuzzyController.d" "FuzzyControl\FuzzyVar.d" "FuzzyControl\MembershipFuction.d" 
+	-$(RM) "main.d" "Apps\Car.d" "Apps\Encoder.d" "Apps\Motor.d" "Apps\PIDController.d" "Apps\Task.d" "Apps\motor_timer.d" "FuzzyControl\CarFuzzy.d" "FuzzyControl\CarSim.d" "FuzzyControl\FuzzyController.d" "FuzzyControl\FuzzyVar.d" "FuzzyControl\MembershipFuction.d" "PathTrack\PathGenerator.d" "PathTrack\PathTrackSim.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

@@ -20,5 +20,6 @@ void ServoDirectionSet(float direction);
 
 extern uint32_t SysTickTime;
 void SysTickInit();
+void SysTick_Handler(void);
 
 #endif /* APPS_MOTOR_TIMER_H_ */

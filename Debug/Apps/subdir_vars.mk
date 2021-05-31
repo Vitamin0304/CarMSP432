@@ -10,6 +10,7 @@ CPP_SRCS += \
 ../Apps/Encoder.cpp \
 ../Apps/Motor.cpp \
 ../Apps/PIDController.cpp \
+../Apps/Task.cpp \
 ../Apps/motor_timer.cpp 
 
 C_SRCS += \
@@ -25,6 +26,7 @@ OBJS += \
 ./Apps/Encoder.obj \
 ./Apps/Motor.obj \
 ./Apps/PIDController.obj \
+./Apps/Task.obj \
 ./Apps/cJSON.obj \
 ./Apps/motor_timer.obj \
 ./Apps/my_uart.obj 
@@ -34,6 +36,7 @@ CPP_DEPS += \
 ./Apps/Encoder.d \
 ./Apps/Motor.d \
 ./Apps/PIDController.d \
+./Apps/Task.d \
 ./Apps/motor_timer.d 
 
 OBJS__QUOTED += \
@@ -41,6 +44,7 @@ OBJS__QUOTED += \
 "Apps\Encoder.obj" \
 "Apps\Motor.obj" \
 "Apps\PIDController.obj" \
+"Apps\Task.obj" \
 "Apps\cJSON.obj" \
 "Apps\motor_timer.obj" \
 "Apps\my_uart.obj" 
@@ -54,6 +58,7 @@ CPP_DEPS__QUOTED += \
 "Apps\Encoder.d" \
 "Apps\Motor.d" \
 "Apps\PIDController.d" \
+"Apps\Task.d" \
 "Apps\motor_timer.d" 
 
 CPP_SRCS__QUOTED += \
@@ -61,6 +66,7 @@ CPP_SRCS__QUOTED += \
 "../Apps/Encoder.cpp" \
 "../Apps/Motor.cpp" \
 "../Apps/PIDController.cpp" \
+"../Apps/Task.cpp" \
 "../Apps/motor_timer.cpp" 
 
 C_SRCS__QUOTED += \

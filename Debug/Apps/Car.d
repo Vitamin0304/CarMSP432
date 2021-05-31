@@ -53,9 +53,9 @@ Apps/Car.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/dev
 Apps/Car.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/wdt_a.h
 Apps/Car.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/sysctl.h
 Apps/Car.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/flash.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Apps/my_uart.h
 Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Apps/Motor.h
 Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Apps/PIDController.h
-Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Apps/my_uart.h
 Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Apps/Car.h
 Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/FuzzyControl/CarFuzzy.h
 Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/FuzzyControl/FuzzyController.h
@@ -296,6 +296,73 @@ Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/Reverse.h
 Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/ArrayWrapper.h
 Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/GlobalFunctions.h
 Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/ReenableStupidWarnings.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Apps/Task.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/PathTrack/PathTrackSim.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/PathTrack/PathGenerator.h
+Apps/Car.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/iostream
+Apps/Car.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/list
+Apps/Car.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/__undef_macros
+Apps/Car.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/vector
+Apps/Car.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/__split_buffer
+Apps/Car.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/__undef_macros
+Apps/Car.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/__undef_macros
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/Geometry
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/SVD
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/QR
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/Cholesky
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/Jacobi
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/DisableStupidWarnings.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Jacobi/Jacobi.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/ReenableStupidWarnings.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/DisableStupidWarnings.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Cholesky/LLT.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Cholesky/LDLT.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/ReenableStupidWarnings.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/Householder
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/DisableStupidWarnings.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Householder/Householder.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Householder/HouseholderSequence.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Householder/BlockHouseholder.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/ReenableStupidWarnings.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/DisableStupidWarnings.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/QR/HouseholderQR.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/QR/FullPivHouseholderQR.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/QR/ColPivHouseholderQR.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/QR/CompleteOrthogonalDecomposition.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/ReenableStupidWarnings.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/DisableStupidWarnings.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/misc/RealSvd2x2.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/SVD/UpperBidiagonalization.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/SVD/SVDBase.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/SVD/JacobiSVD.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/SVD/BDCSVD.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/ReenableStupidWarnings.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/LU
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/DisableStupidWarnings.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/misc/Kernel.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/misc/Image.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/LU/FullPivLU.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/LU/PartialPivLU.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/LU/Determinant.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/LU/InverseImpl.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/ReenableStupidWarnings.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/DisableStupidWarnings.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/OrthoMethods.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/EulerAngles.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/Homogeneous.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/RotationBase.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/Rotation2D.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/Quaternion.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/AngleAxis.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/Transform.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/Translation.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/Scaling.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/Hyperplane.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/ParametrizedLine.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/AlignedBox.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/Umeyama.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/ReenableStupidWarnings.h
+Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Apps/cJSON.h
 Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Apps/Encoder.h
 Apps/Car.obj: D:/WorkSpace/ccs9/CarMSP432/Apps/motor_timer.h
 
@@ -352,9 +419,9 @@ D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4x
 D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/wdt_a.h: 
 D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/sysctl.h: 
 D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/flash.h: 
+D:/WorkSpace/ccs9/CarMSP432/Apps/my_uart.h: 
 D:/WorkSpace/ccs9/CarMSP432/Apps/Motor.h: 
 D:/WorkSpace/ccs9/CarMSP432/Apps/PIDController.h: 
-D:/WorkSpace/ccs9/CarMSP432/Apps/my_uart.h: 
 D:/WorkSpace/ccs9/CarMSP432/Apps/Car.h: 
 D:/WorkSpace/ccs9/CarMSP432/FuzzyControl/CarFuzzy.h: 
 D:/WorkSpace/ccs9/CarMSP432/FuzzyControl/FuzzyController.h: 
@@ -595,5 +662,72 @@ D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/Reverse.h:
 D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/ArrayWrapper.h: 
 D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/GlobalFunctions.h: 
 D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/ReenableStupidWarnings.h: 
+D:/WorkSpace/ccs9/CarMSP432/Apps/Task.h: 
+D:/WorkSpace/ccs9/CarMSP432/PathTrack/PathTrackSim.h: 
+D:/WorkSpace/ccs9/CarMSP432/PathTrack/PathGenerator.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/iostream: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/list: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/__undef_macros: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/vector: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/__split_buffer: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/__undef_macros: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/__undef_macros: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/Geometry: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/SVD: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/QR: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/Cholesky: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/Jacobi: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/DisableStupidWarnings.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Jacobi/Jacobi.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/ReenableStupidWarnings.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/DisableStupidWarnings.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Cholesky/LLT.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Cholesky/LDLT.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/ReenableStupidWarnings.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/Householder: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/DisableStupidWarnings.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Householder/Householder.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Householder/HouseholderSequence.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Householder/BlockHouseholder.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/ReenableStupidWarnings.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/DisableStupidWarnings.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/QR/HouseholderQR.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/QR/FullPivHouseholderQR.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/QR/ColPivHouseholderQR.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/QR/CompleteOrthogonalDecomposition.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/ReenableStupidWarnings.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/DisableStupidWarnings.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/misc/RealSvd2x2.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/SVD/UpperBidiagonalization.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/SVD/SVDBase.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/SVD/JacobiSVD.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/SVD/BDCSVD.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/ReenableStupidWarnings.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/LU: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/DisableStupidWarnings.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/misc/Kernel.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/misc/Image.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/LU/FullPivLU.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/LU/PartialPivLU.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/LU/Determinant.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/LU/InverseImpl.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/ReenableStupidWarnings.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/DisableStupidWarnings.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/OrthoMethods.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/EulerAngles.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/Homogeneous.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/RotationBase.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/Rotation2D.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/Quaternion.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/AngleAxis.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/Transform.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/Translation.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/Scaling.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/Hyperplane.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/ParametrizedLine.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/AlignedBox.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Geometry/Umeyama.h: 
+D:/WorkSpace/ccs9/CarMSP432/Eigen/src/Core/util/ReenableStupidWarnings.h: 
+D:/WorkSpace/ccs9/CarMSP432/Apps/cJSON.h: 
 D:/WorkSpace/ccs9/CarMSP432/Apps/Encoder.h: 
 D:/WorkSpace/ccs9/CarMSP432/Apps/motor_timer.h: 
