@@ -146,7 +146,7 @@ namespace pathTrack {
 
         if (method == 1)
         {
-            float x_D = 0.145;
+            float x_D = 0.155;
             float& theta = initParam[2];
             float k = tan(theta);
 
@@ -207,7 +207,7 @@ namespace pathTrack {
             Vector2f H2(H[0], 0.11);
             Vector2f J(0.2, 0.135);
             Vector2f K(0.0, 0.11);
-            Vector2f L(0.1, 0.11);
+            Vector2f L(0.15, 0.11);
 
             LinePath line4(H, J, true);
             LinePath line5(J, K, false);
@@ -226,7 +226,7 @@ namespace pathTrack {
         }
 
 
-        return GetPathPartsJsonString();
+        return NULL;
     }
 
     cJSON* LinePath::GetJson(bool isStart)

@@ -44,44 +44,56 @@ PIDSpeedController::PIDSpeedController(Motor* pMotor, PID_PARAM* pidParam)
                    pidParam->Kp,pidParam->Ki,pidParam->Kd)
 {
 }
-float PIDSpeedController::a = 0.5;
+float PIDSpeedController::Td = 0.008;
 float PIDSpeedController::Compute()
 {
-    omega_revised = a * lastActualValue + (1-a)*(*pActualValue);
-
     //±àÂëÆ÷¾À´í
-    if((lastActualValue-*pActualValue > 8 || lastActualValue-*pActualValue < -8)
-            && lastActualValue*(*pActualValue)<0)
-        *pActualValue = - *pActualValue;
-
-    if(omega_revised > 60)
-        omega_revised = *pSetValue - lastErr;
+//    if((lastActualValue-*pActualValue > 8 || lastActualValue-*pActualValue < -8)
+//            && lastActualValue*(*pActualValue)<0)
+//        *pActualValue = - *pActualValue;
 
     float P = 0, I = 0, D = 0;
-    nowErr = *pSetValue - omega_revised;
+    nowErr = *pSetValue - *pActualValue;
 
     P = Kp * nowErr;
 
-//    if(nowErr>-10 && nowErr<10)
+    switch(out_max_flag)
     {
+    case -1:
+        if(nowErr > 0)
+            integral += (nowErr+lastErr)/2;
+        break;
+    case 0:
         integral += (nowErr+lastErr)/2;
-        I = Ki * integral *delay_s;
-        if(integral<-1000)
-            integral = -1000;
-        else if(integral>1000)
-            integral = 1000;
+        break;
+    case 1:
+        if(nowErr < 0)
+            integral += (nowErr+lastErr)/2;
+        break;
     }
-    //if((nowErr - lastErr)<-1 || (nowErr - lastErr)>1)
-        D = Kd * (nowErr - lastErr) /delay_s;
+    integral += (nowErr+lastErr)/2;
+    I = Ki * integral *delay_s;
 
-    lastErr = nowErr;
-    lastActualValue = omega_revised;
+//    D = Kd * (nowErr - lastErr) /delay_s;
+    D = Kd /delay_s * (nowErr - lastErr) + exp(-delay_s/Td)*lastOutput;
 
     output = P + I + D;
     if(output > 0.98)
+    {
         output = 0.98;
+        out_max_flag = 1;
+    }
     else if(output < -0.98)
+    {
         output = -0.98;
+        out_max_flag = -1;
+    }
+    else
+        out_max_flag = 0;
+
+    lastErr = nowErr;
+    lastOutput = output;
+    lastActualValue = *pActualValue;
 
     return output;
 }
@@ -127,9 +139,9 @@ float ESOSpeedController::b = 800;
 float ESOSpeedController::Compute()
 {
     //±àÂëÆ÷¾À´í
-    if((lastActualValue-*pActualValue > 8 || lastActualValue-*pActualValue < -8)
-            && lastActualValue*(*pActualValue)<0)
-        *pActualValue = - *pActualValue;
+//    if((lastActualValue-*pActualValue > 8 || lastActualValue-*pActualValue < -8)
+//            && lastActualValue*(*pActualValue)<0)
+//        *pActualValue = - *pActualValue;
 
     nowErr = z1 - *pActualValue;
 
@@ -171,7 +183,7 @@ float ESOSpeedController::Compute()
 //    v2 += (wt*wt*(*pSetValue-v1) - 2*wt*v2) * delay_s;
 //    v1 += v2 * delay_s;
 
-    output = Kp * Fal((*pSetValue - z1),0.8) + Kd * Fal(Saturation(z2,25),1.1) - z3/b;
+    output = Kp * Fal((*pSetValue - z1),0.8) + Kd * Fal(z2,1) - z3/b;
 //    output = Kp * Fal((v1 - z1),1) + Kd * Fal(z2,1) - z3/b;
 
 

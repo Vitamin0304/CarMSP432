@@ -60,6 +60,7 @@ extern uint8_t parkMethod;
 extern PIDParkAdjustController* pidParkAdjust;
 
 extern PathTrackSim pathTrackSim;
+extern PathTrackSimTask pathTrackTask;
 extern PID_PARAM PIDPathTrackParam;
 extern PIDPathTrackController pidPathTrack;
 class Car

@@ -158,14 +158,6 @@ void EUSCIA1_IRQHandler(void)
                     cJSON_Delete(root);
                 }
             }
-//            else
-//            {
-//                pReverseParam->x = 0;
-//                pReverseParam->y = 0;
-//                pReverseParam->theta = 0;
-//                pReverseParam->flag = 0;
-//                parkParamIsNew = false;
-//            }
             uart1RxLength = 0;
         }
     }

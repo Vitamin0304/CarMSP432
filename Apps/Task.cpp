@@ -65,6 +65,10 @@ int8_t PathTrackSimTask::Execute2(float v_r)
         {
             pathTrackSim.carSim->ComputeSim_IMU(v_r, parkMethod);
         }
+        x_out[0] = x[0];
+        x_out[1] = x[1];
+        x_out[2] = x[2];
+
         stop = pathTrackSim.ComuputeError(z, e);
         if (stop)
         {
@@ -76,7 +80,7 @@ int8_t PathTrackSimTask::Execute2(float v_r)
         for (int j = 0; j < unsmooth.size(); ++j)
         {
             //处理小车行驶时改变方向问题
-            if (pathTrackSim.nowStep >= unsmooth[j] - 3
+            if (pathTrackSim.nowStep >= unsmooth[j] - 4
                 && pathTrackSim.nowStep < unsmooth[j]
                 && parkMethod == 0)
             {

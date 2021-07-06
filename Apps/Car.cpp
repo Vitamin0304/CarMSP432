@@ -91,6 +91,20 @@ void Car::SetDistance(float distance)
 
 void Car::StatusManage()
 {
+    if((int)parkMethodFloat == 10)
+    {
+        parkMethod = 0;
+        carStatus = parkSim;
+    }
+    else if((int)parkMethodFloat == 20)
+    {
+        parkMethod = 1;
+        carStatus = parkSim;
+    }
+    else if((int)parkMethodFloat == -1)
+    {
+        carStatus = stop;
+    }
     if(carStatus == previousStatus)    //指令没改变
     {
         return;
@@ -107,6 +121,8 @@ void Car::StatusManage()
            pidDistanceSwitch = false;
            ESOSpeed[0].Reset();
            ESOSpeed[1].Reset();
+           pidSpeed[0].Reset();
+           pidSpeed[1].Reset();
            break;
        case brake:   //4号键 刹车
            SetDistance(1);
@@ -148,18 +164,17 @@ void Car::StatusManage()
                Eigen::Vector3f x1(parkInit.Kp, parkInit.Ki, parkInit.Kd * EIGEN_PI / 180);
                x=x1;
            }
-           parkMethod = parkMethodFloat;
+           parkMethodFloat = 0;
+//           parkMethod = parkMethodFloat;
 //           Eigen::Vector3f x(0.6, 0.8, 0 * EIGEN_PI / 180);
 //           parkMethod = 1;
 //           if(parkMethod == 1)
 //               x[2] -= 10 * EIGEN_PI / 180;
 
-           char* pathJson = pathTrackSim.Init(x, parkMethod, 0.002);
+           pathTrackSim.Init(x, parkMethod, 0.002);
            pidPathTrack.Reset();
 
            pathTrackTask.Init();
-
-           free(pathJson);
            break;
        }
        case parkAdjust:
@@ -178,8 +193,8 @@ void Car::StatusManage()
        default:
            break;
     }
-//    pidSpeed[0].integral = 0;
-//    pidSpeed[1].integral = 0;
+//    pidSpeed[0].Reset();
+//    pidSpeed[1].Reset();
 //    ESOSpeed[0].Reset();
 //    ESOSpeed[1].Reset();
     previousStatus = carStatus;

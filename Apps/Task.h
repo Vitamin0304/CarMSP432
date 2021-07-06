@@ -29,7 +29,7 @@ public:
     void Init();
     int8_t Execute2(float v_r);
 
-
+    float x_out[3] = {0};
 };
 }
 #endif /* APPS_TASK_H_ */

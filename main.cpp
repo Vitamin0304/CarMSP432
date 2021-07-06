@@ -39,17 +39,18 @@ int main(void)
     OLED_Init();
     TimeUsed_Display(10, 23, 1);
 
-    PID_PARAM PIDMotorParam = {0.18,0.8,0.002};
+    PID_PARAM PIDMotorParam = {0.16,0.6,0.002};
     PID_PARAM PIDDistanceParam = {15,0.8,0.8};
 
     PID_PARAM PIDParkAdjustParam = {60, 0, 20};
 
-    PID_PARAM ESOMotorParam = {0.16,13,0.006};
+//    PID_PARAM ESOMotorParam = {0.16,14,0.008};
+    PID_PARAM ESOMotorParam = {0.12,14,0.01};
 
 //    UART0Init(&PIDParkAdjustParam,&Car::parkMethodFloat);
     UART0Init(&carTask::parkInit,&carTask::parkMethodFloat);
 //    UART0Init(&ESOMotorParam,&ESOSpeedController::b);
-//    UART0Init(&PIDMotorParam,&PIDSpeedController::a);
+//    UART0Init(&PIDMotorParam,&PIDSpeedController::Td);
     UART1Init(&carTask::parkParam);
     UART2Init();
 
@@ -98,8 +99,8 @@ int main(void)
 
     while(1)
     {
-//        pidSpeed[0].SetPIDParam(&PIDMotorParam);
-//        pidSpeed[1].SetPIDParam(&PIDMotorParam);
+        pidSpeed[0].SetPIDParam(&PIDMotorParam);
+        pidSpeed[1].SetPIDParam(&PIDMotorParam);
         ESOSpeed[0].SetPIDParam(&ESOMotorParam);
         ESOSpeed[1].SetPIDParam(&ESOMotorParam);
         pidDistance[0].SetPIDParam(&PIDDistanceParam);
@@ -114,24 +115,31 @@ int main(void)
 //        car.OpenLoop(times*delay_s,ESOMotorParam.Kp);
 
 //        sendData[0] = motors[0].omega_set;
-//        sendData[1] = carTask::pathTrackSim.nowStep;
+//        sendData[1] = car.motor_output[0];
 //        sendData[2] = motors[0].omega_actual;
 //        sendData[3] = motors[1].omega_actual;
 
-        sendData[0] = carTask::parkParam.x;
-        sendData[1] = carTask::parkParam.y;
-        sendData[2] = carTask::parkParam.theta;
-        sendData[3] = carTask::parkParam.flag;
+//        sendData[0] = carTask::parkParam.x;
+//        sendData[1] = carTask::parkParam.y;
+//        sendData[2] = carTask::parkParam.theta;
+//        sendData[3] = carTask::parkParam.flag;
+
+
+        sendData[0] = carTask::pathTrackTask.x_out[0];
+        sendData[1] = carTask::pathTrackTask.x_out[1];
+        sendData[2] = carTask::pathTrackTask.x_out[2];
+        sendData[3] = carTask::pathTrackSim.carSim->phi *57.2957795;
 
 //        sendData[0] = IMU_Angle[0];
 //        sendData[1] = IMU_Angle[1];
 //        sendData[2] = IMU_Angle[2];
 //        sendData[3] = 0;
 
+//        sendData[0] = 0;
 //        sendData[0] = carTask::pathTrackSim.carSim->phi *57.2957795;
-//        sendData[1] = carTask::carStatus;
-//        sendData[2] = IMU_Angle[2];
-//        sendData[3] = carTask::pathTrackSim.nowStep;
+//        sendData[1] = IMU_Angle[2];
+//        sendData[2] = 0;
+//        sendData[3] = 0;
 
         //if(mqttConnected == true && times%6 == 0)
         if(times%2 == 0)

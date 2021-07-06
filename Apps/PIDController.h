@@ -39,10 +39,11 @@ class PIDSpeedController : public PIDController
 public:
     PIDSpeedController(Motor* pMotor, PID_PARAM* pidParam);
     float Compute();
-    float omega_revised;
-    static float a;
+    float lastOutput = 0;
+    static float Td;
 private:
     float lastActualValue = 0;
+    int out_max_flag = 0;
 };
 
 class ESOSpeedController : public PIDController
