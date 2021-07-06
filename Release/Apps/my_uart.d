@@ -3,15 +3,17 @@
 Apps/my_uart.obj: ../Apps/my_uart.c
 Apps/my_uart.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/driverlib.h
 Apps/my_uart.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/adc14.h
-Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdint.h
-Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/_stdint40.h
-Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/stdint.h
-Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/cdefs.h
-Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/_types.h
-Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/machine/_types.h
-Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/machine/_stdint.h
-Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/_stdint.h
-Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdbool.h
+Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/stdint.h
+Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/_ti_config.h
+Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/linkage.h
+Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/_stdint40.h
+Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/stdint.h
+Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/cdefs.h
+Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/_types.h
+Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/machine/_types.h
+Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/machine/_stdint.h
+Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/_stdint.h
+Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/stdbool.h
 Apps/my_uart.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/inc/msp.h
 Apps/my_uart.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/inc/msp432p401r.h
 Apps/my_uart.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/inc/msp_compatibility.h
@@ -48,25 +50,25 @@ Apps/my_uart.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti
 Apps/my_uart.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/wdt_a.h
 Apps/my_uart.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/sysctl.h
 Apps/my_uart.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/flash.h
-Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdio.h
-Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/_ti_config.h
-Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/linkage.h
-Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdarg.h
+Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/stdio.h
+Apps/my_uart.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/stdarg.h
 Apps/my_uart.obj: D:/WorkSpace/ccs9/CarMSP432/Apps/my_uart.h
 Apps/my_uart.obj: ../Apps/cJSON.h
 
 ../Apps/my_uart.c: 
 D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/driverlib.h: 
 D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/adc14.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdint.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/_stdint40.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/stdint.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/cdefs.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/_types.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/machine/_types.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/machine/_stdint.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/_stdint.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdbool.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/stdint.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/_ti_config.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/linkage.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/_stdint40.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/stdint.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/cdefs.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/_types.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/machine/_types.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/machine/_stdint.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/_stdint.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/stdbool.h: 
 D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/inc/msp.h: 
 D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/inc/msp432p401r.h: 
 D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/inc/msp_compatibility.h: 
@@ -103,9 +105,7 @@ D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4x
 D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/wdt_a.h: 
 D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/sysctl.h: 
 D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/flash.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdio.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/_ti_config.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/linkage.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdarg.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/stdio.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/stdarg.h: 
 D:/WorkSpace/ccs9/CarMSP432/Apps/my_uart.h: 
 ../Apps/cJSON.h: 

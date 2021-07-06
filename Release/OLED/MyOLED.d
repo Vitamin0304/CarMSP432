@@ -2,15 +2,17 @@
 
 OLED/MyOLED.obj: ../OLED/MyOLED.c
 OLED/MyOLED.obj: ../OLED/MyOLED.h
-OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdint.h
-OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/_stdint40.h
-OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/stdint.h
-OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/cdefs.h
-OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/_types.h
-OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/machine/_types.h
-OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/machine/_stdint.h
-OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/_stdint.h
-OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdbool.h
+OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/stdint.h
+OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/_ti_config.h
+OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/linkage.h
+OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/_stdint40.h
+OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/stdint.h
+OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/cdefs.h
+OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/_types.h
+OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/machine/_types.h
+OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/machine/_stdint.h
+OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/_stdint.h
+OLED/MyOLED.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/stdbool.h
 OLED/MyOLED.obj: ../OLED/MyOledFont.h
 OLED/MyOLED.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/driverlib.h
 OLED/MyOLED.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/adc14.h
@@ -53,15 +55,17 @@ OLED/MyOLED.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/
 
 ../OLED/MyOLED.c: 
 ../OLED/MyOLED.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdint.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/_stdint40.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/stdint.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/cdefs.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/_types.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/machine/_types.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/machine/_stdint.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/_stdint.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdbool.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/stdint.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/_ti_config.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/linkage.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/_stdint40.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/stdint.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/cdefs.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/_types.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/machine/_types.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/machine/_stdint.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/_stdint.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/stdbool.h: 
 ../OLED/MyOledFont.h: 
 D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/driverlib.h: 
 D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/adc14.h: 

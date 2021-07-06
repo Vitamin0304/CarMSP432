@@ -9,7 +9,7 @@ extern "C" {
 }
 #include <Apps/Encoder.h>
 
-const float delay_s = 0.04;
+const float delay_s = 0.03;
 //进入中断后变为false
 volatile bool delayFlag;
 
@@ -136,6 +136,7 @@ void TA2_N_IRQHandler()
         freqSignBefore1[1] = freqSignBefore1[2];
         freqSignBefore1[2] = freqSign1;
 
+//        if(freqSignBefore1[0] == 1 && freqSignBefore1[1] == 1)
         if(freqSignBefore1[0] == 1 && freqSignBefore1[1] == 1 && freqSignBefore1[2] == 1)
             freqSign1 = 1;
         else

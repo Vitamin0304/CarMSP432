@@ -29,8 +29,9 @@ void SysTickInit()
     /* Configuring SysTick to trigger at 4800000 (MCLK is 48MHz so this will make
      * it toggle every 0.1s) */
     SysTick_enableModule();
-    SysTick_setPeriod(SysCtlClock*0.01);
+    SysTick_setPeriod(CS_getMCLK()*0.001);
     Interrupt_disableSleepOnIsrExit();
+    SysTick_registerInterrupt(SysTick_Handler);
     SysTick_enableInterrupt();
     // Enabling Master Interrupt
     Interrupt_enableMaster();
@@ -115,7 +116,9 @@ void ServoDirectionSet(float direction)
         direction = -1;
 
     if(direction>0)
-        direction*=1.5;
+        direction*=1.8;
+    else
+        direction*=1.18;
 
     direction += servoOffset;
     uint16_t compareValue = 1500*direction + 4500;
@@ -220,7 +223,7 @@ void TA0_N_IRQHandler(void)
             {
 //                sprintf(send, "bits: %d\ndata: %0X\n",bits,data);
 //                UART0SendString(send, strlen(send));
-                Car::CommandQuery(data);
+                carTask::Car::CommandQuery(data);
                 //CarCommandQuery(data);
             }
         }
@@ -244,8 +247,10 @@ void TA0_N_IRQHandler(void)
         freqSignBefore2[2] = freqSign2;
 
         if(freqSignBefore2[0] == -1 && freqSignBefore2[1] == -1 && freqSignBefore2[2] == -1)
+//        if(freqSignBefore2[0] == -1 && freqSignBefore2[1] == -1)
             freqSign2 = -1;
         else if(freqSignBefore2[0] == 1 && freqSignBefore2[1] == 1 && freqSignBefore2[2] == 1)
+//        else if(freqSignBefore2[0] == 1 && freqSignBefore2[1] == 1)
             freqSign2 = 1;
     }
     if(intStatus4 == TIMER_A_CAPTURECOMPARE_INTERRUPT_FLAG)

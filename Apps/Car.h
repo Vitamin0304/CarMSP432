@@ -16,9 +16,11 @@ extern "C"
 #include <FuzzyControl/CarFuzzy.h>
 #include <FuzzyControl/CarSim.h>
 #include <Apps/Motor.h>
-
+#include <Apps/Task.h>
 #define FINAL_STEP -1
 
+namespace carTask
+{
 enum CarStatus
 {
     stop = 0,
@@ -33,8 +35,8 @@ enum CarStatus
     //------
     park, //倒车
     parkSim,
-    imageSeekLine,
-    obstacle
+    parkAdjust,
+    distanceTask
 };
 extern volatile enum CarStatus carStatus;
 //extern volatile enum MotorStatus previousStatus;
@@ -43,13 +45,30 @@ extern float defaultSpeed[2];
 extern float parkSpeed[2];
 
 const float carLength = 0.228f;
-extern fuzzy::CarSim carSim;
 
+extern PARK_PARAM parkParam;
+extern PARK_PARAM parkSimParam;
+extern PID_PARAM parkInit;
+extern float parkMethodFloat;
+extern bool lastError[3];
+//float phi = 0;
+extern float parkInputs[3];
+extern float* nowSpeed;
+
+extern bool pidDistanceSwitch;
+extern uint8_t parkMethod;
+extern PIDParkAdjustController* pidParkAdjust;
+
+extern PathTrackSim pathTrackSim;
+extern PathTrackSimTask pathTrackTask;
+extern PID_PARAM PIDPathTrackParam;
+extern PIDPathTrackController pidPathTrack;
 class Car
 {
 public:
     Car(Motor* motors,
         PIDSpeedController* pidSpeed,
+        ESOSpeedController* ESOSpeed,
         PIDDistanceController* pidDistance);
     virtual ~Car();
 
@@ -63,29 +82,28 @@ public:
     void SetDistance(float distance);
 
     void PIDCompute();
+    void OpenLoop(float time,float w);
     void ExecuteTask();
 
     float omega_set_output[2] = {0};
     float motor_output[2] = {0};
-    //倒车输入量
-    static PARK_PARAM parkParam;
-    static PARK_PARAM parkSimParam;
-    static PID_PARAM parkInit;
-    static float parkMethodFloat;
-    static bool lastError[3];
-    //float phi = 0;
+
+    PIDDistanceController* pidDistance;
+
+    float phi_output;
 private:
     Motor* motors;
     PIDSpeedController* pidSpeed;
-    PIDDistanceController* pidDistance;
-    float* nowSpeed = defaultSpeed;
 
-    bool pidDistanceSwitch = false;
+    ESOSpeedController* ESOSpeed;
+
     //倒车函数
-    int8_t ParkTask();
-    static uint8_t parkMethod;
+    int8_t ParkTask_old();
+    int8_t ParkAdjustTask();
 };
 
+extern Car* _car;
 
+}
 
 #endif /* APPS_CAR_H_ */

@@ -3,20 +3,22 @@
 Apps/Encoder.obj: ../Apps/Encoder.cpp
 Apps/Encoder.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/driverlib.h
 Apps/Encoder.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/adc14.h
-Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/stdint.h
-Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/__config
-Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/__config_site
-Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/__libcxx_extra.h
-Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdint.h
-Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/_stdint40.h
-Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/stdint.h
-Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/cdefs.h
-Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/_types.h
-Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/machine/_types.h
-Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/machine/_stdint.h
-Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/_stdint.h
-Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/stdbool.h
-Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdbool.h
+Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/libcxx/stdint.h
+Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/libcxx/__config
+Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/libcxx/__config_site
+Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/libcxx/__libcxx_extra.h
+Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/stdint.h
+Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/_ti_config.h
+Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/linkage.h
+Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/_stdint40.h
+Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/stdint.h
+Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/cdefs.h
+Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/_types.h
+Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/machine/_types.h
+Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/machine/_stdint.h
+Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/_stdint.h
+Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/libcxx/stdbool.h
+Apps/Encoder.obj: D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/stdbool.h
 Apps/Encoder.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/inc/msp.h
 Apps/Encoder.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/inc/msp432p401r.h
 Apps/Encoder.obj: D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/inc/msp_compatibility.h
@@ -58,20 +60,22 @@ Apps/Encoder.obj: D:/WorkSpace/ccs9/CarMSP432/Apps/Encoder.h
 ../Apps/Encoder.cpp: 
 D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/driverlib.h: 
 D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/adc14.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/stdint.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/__config: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/__config_site: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/__libcxx_extra.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdint.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/_stdint40.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/stdint.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/cdefs.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/_types.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/machine/_types.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/machine/_stdint.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/_stdint.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/libcxx/stdbool.h: 
-D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdbool.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/libcxx/stdint.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/libcxx/__config: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/libcxx/__config_site: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/libcxx/__libcxx_extra.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/stdint.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/_ti_config.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/linkage.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/_stdint40.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/stdint.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/cdefs.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/_types.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/machine/_types.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/machine/_stdint.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/sys/_stdint.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/libcxx/stdbool.h: 
+D:/software/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.8.LTS/include/stdbool.h: 
 D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/inc/msp.h: 
 D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/inc/msp432p401r.h: 
 D:/WorkSpace/ccs9/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/inc/msp_compatibility.h: 

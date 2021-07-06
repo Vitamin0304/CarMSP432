@@ -6,6 +6,7 @@
  */
 extern "C" {
 #include <ti/devices/msp432p4xx/driverlib/driverlib.h>
+#include "Apps/my_uart.h"
 }
 #include <Apps/Motor.h>
 #include <Apps/PIDController.h>
@@ -15,20 +16,42 @@ extern "C" {
 #include <cmath>
 #include <Eigen/Core>
 
+using namespace Eigen;
+namespace carTask
+{
 volatile enum CarStatus carStatus = stop;
 volatile enum CarStatus previousStatus = stop;
 
-float defaultSpeed[2] = {5,5};
-float parkSpeed[2] = {2,2};
+float defaultSpeed[2] = {1,1};
+float parkSpeed[2] = {1,1};
+
+float* nowSpeed = defaultSpeed;
+bool pidDistanceSwitch = false;
 
 fuzzy::CarSim carSim(0.142, delay_s);
+PIDParkAdjustController* pidParkAdjust = NULL;
+Car* _car = NULL;
+
+PathTrackSim pathTrackSim(0.35);
+PathTrackSimTask pathTrackTask;
+PID_PARAM PIDPathTrackParam = {10, 0.1, 0.3};
+PIDPathTrackController pidPathTrack(&pathTrackSim.carSim->phi,&PIDPathTrackParam);
+
+PID_PARAM parkInit = {0,0,0};
+float parkMethodFloat = 0;
+uint8_t parkMethod = 1;
+
+PARK_PARAM parkParam = {0,0,0};
+PARK_PARAM parkSimParam = {0,0,0};
 
 Car::Car(Motor* motors,
          PIDSpeedController* pidSpeed,
+         ESOSpeedController* ESOSpeed,
          PIDDistanceController* pidDistance)
 {
     this->motors = motors;
     this->pidSpeed = pidSpeed;
+    this->ESOSpeed = ESOSpeed;
     this->pidDistance = pidDistance;
     ServoInit();
     ServoDirectionSet(0);
@@ -68,6 +91,20 @@ void Car::SetDistance(float distance)
 
 void Car::StatusManage()
 {
+    if((int)parkMethodFloat == 10)
+    {
+        parkMethod = 0;
+        carStatus = parkSim;
+    }
+    else if((int)parkMethodFloat == 20)
+    {
+        parkMethod = 1;
+        carStatus = parkSim;
+    }
+    else if((int)parkMethodFloat == -1)
+    {
+        carStatus = stop;
+    }
     if(carStatus == previousStatus)    //指令没改变
     {
         return;
@@ -82,9 +119,13 @@ void Car::StatusManage()
        case stop:    //2号键  停止
            MotorStop();
            pidDistanceSwitch = false;
+           ESOSpeed[0].Reset();
+           ESOSpeed[1].Reset();
+           pidSpeed[0].Reset();
+           pidSpeed[1].Reset();
            break;
        case brake:   //4号键 刹车
-           SetDistance(0);
+           SetDistance(1);
            break;
        case commandGoForward:    //前进键
            nowSpeed = defaultSpeed;
@@ -104,28 +145,58 @@ void Car::StatusManage()
            break;
        case commandGoStraight:   //舵机直行
            ServoDirectionSet(0);
+           sendIMUcmd(1);
            break;
        case park:
-           nowSpeed = parkSpeed;
-           MotorGoBack();
-           break;
-       case parkSim:
-           if(previousStatus != park){
-               Eigen::Vector3f x(parkInit.Kp, parkInit.Ki, parkInit.Kd);
-               carSim.SetVariables(x);
-               parkMethod = (uint8_t)parkMethodFloat;
-           }
-           nowSpeed = parkSpeed;
-           MotorGoBack();
-           break;
-       case imageSeekLine:
 
            break;
-       case obstacle:            //红外检测到障碍物
+       case parkSim:
+       {
+           Eigen::Vector3f x;
+           if(parkParamIsNew)
+           {
+               Eigen::Vector3f x1(parkParam.x, parkParam.y, parkParam.theta);
+               x=x1;
+               parkParamIsNew = false;
+           }
+           else
+           {
+               Eigen::Vector3f x1(parkInit.Kp, parkInit.Ki, parkInit.Kd * EIGEN_PI / 180);
+               x=x1;
+           }
+           parkMethodFloat = 0;
+//           parkMethod = parkMethodFloat;
+//           Eigen::Vector3f x(0.6, 0.8, 0 * EIGEN_PI / 180);
+//           parkMethod = 1;
+//           if(parkMethod == 1)
+//               x[2] -= 10 * EIGEN_PI / 180;
+
+           pathTrackSim.Init(x, parkMethod, 0.002);
+           pidPathTrack.Reset();
+
+           pathTrackTask.Init();
+           break;
+       }
+       case parkAdjust:
+       {
+           if(previousStatus != park && previousStatus != parkSim){
+               Eigen::Vector3f x(0.3,0.9,70);
+               carSim.SetVariables(x);
+
+               parkMethod = 1;
+           }
+           break;
+       }
+       case distanceTask:
+
+           break;
+       default:
            break;
     }
-    pidSpeed[0].integral = 0;
-    pidSpeed[1].integral = 0;
+//    pidSpeed[0].Reset();
+//    pidSpeed[1].Reset();
+//    ESOSpeed[0].Reset();
+//    ESOSpeed[1].Reset();
     previousStatus = carStatus;
 }
 
@@ -142,8 +213,21 @@ void Car::PIDCompute()
         motors[1].omega_set = omega_set_output[1];
     }
 
-    motor_output[0] = pidSpeed[0].Compute();
-    motor_output[1] = pidSpeed[1].Compute();
+//    motor_output[0] = pidSpeed[0].Compute();
+//    motor_output[1] = pidSpeed[1].Compute();
+    motor_output[0] = ESOSpeed[0].Compute();
+    motor_output[1] = ESOSpeed[1].Compute();
+    motors[0].SetSpeed(motor_output[0]);
+    motors[1].SetSpeed(-motor_output[1]);
+}
+void Car::OpenLoop(float time,float w)
+{
+    motors[0].ComputeActualParam();
+    motors[1].ComputeActualParam();
+
+    motor_output[0] = motors[0].omega_set * sin(w*time);
+    motor_output[1] = motors[1].omega_set * sin(w*time);
+
     motors[0].SetSpeed(motor_output[0]);
     motors[1].SetSpeed(-motor_output[1]);
 }
@@ -153,32 +237,48 @@ void Car::ExecuteTask()
     switch(carStatus)
     {
     case park:
-        if(ParkTask() == -1)
-            carStatus = stop;
+//        if(ParkTask() == -1)
+//            carStatus = stop;
+//        if(parkTask.Execute() == -1)
+//            carStatus = stop;
         break;
     case parkSim:
-        carSim.Compute(-(motors[0].omega_actual + motors[1].omega_actual)/2*0.0325, 1);
-        if(ParkTask() == -1)
+    {
+        float v_r = (motors[0].omega_actual + motors[1].omega_actual)/2*0.0315;
+        if(pathTrackTask.Execute2(v_r) == -1)
+        {
+            carStatus = stop;
+        }
+        break;
+    }
+    case parkAdjust:
+//        carSim.Compute(-(motors[0].omega_actual + motors[1].omega_actual)/2*0.0325, 1);
+//        if(parkAdjustTask.Execute() == -1)
+//        {
+//            carStatus = stop;
+//        }
+        break;
+    case distanceTask:
+    {
+        float err = (pidDistance[0].nowErr+pidDistance[1].nowErr)/2;
+        if(err<=0.01 && err>=-0.01)
             carStatus = stop;
         break;
+    }
     default:
         break;
     }
 }
-PARK_PARAM Car::parkParam = {0,0,0};
-PARK_PARAM Car::parkSimParam = {0,0,0};
-uint8_t Car::parkMethod = 1;
-PID_PARAM Car::parkInit = {0,0,0};
-float Car::parkMethodFloat = 0;
 
-bool Car::lastError[3] = {false};
-int8_t Car::ParkTask()
+float parkInputs[3] = {0};
+
+bool lastError[3] = {false};
+int8_t Car::ParkTask_old()
 {
     static int32_t step = 0;
-    static float inputs[3] = {0};
 
     bool nowError = false;
-    //||(parkParam.flag == 1 && (inputs[0] <= 0 || inputs[1] <= 0 || inputs[2] <= -120 || inputs[2] >= 120))
+    //||(parkParam.flag == 1 && (parkInputs[0] <= 0 || parkInputs[1] <= 0 || inputs[2] <= -120 || inputs[2] >= 120))
     if(parkParam.flag == 0 && carStatus == park)
     {
         nowError = true;
@@ -189,7 +289,7 @@ int8_t Car::ParkTask()
 
     if(lastError[0]&&lastError[1]&&lastError[2])
     {
-        Eigen::Vector3f x(inputs);
+        Eigen::Vector3f x(parkInputs);
         carSim.SetVariables(x);
 
         carStatus = parkSim;
@@ -200,21 +300,21 @@ int8_t Car::ParkTask()
     if(carStatus == park && nowError == false)
     {
         param = &parkParam;
-        inputs[0] = param->x + carLength*cos(param->theta /180*PI);
-        inputs[1] = param->y + carLength*sin(param->theta /180*PI);
-        inputs[2] = param->theta;
+        parkInputs[0] = param->x + carLength*cos(param->theta /180*PI);
+        parkInputs[1] = param->y + carLength*sin(param->theta /180*PI);
+        parkInputs[2] = param->theta;
     }
     else if(carStatus == parkSim)
     {
         param = &parkSimParam;
-        inputs[0] = param->x;
-        inputs[1] = param->y;
-        inputs[2] = param->theta;
+        parkInputs[0] = param->x;
+        parkInputs[1] = param->y;
+        parkInputs[2] = param->theta;
     }
 
 
-    if(inputs[0] <= 0 || inputs[1] <= 0
-            || inputs[2] <= -120 || inputs[2] >= 120)
+    if(parkInputs[0] <= 0 || parkInputs[1] <= 0
+            || parkInputs[2] <= -120 || parkInputs[2] >= 120)
         return FINAL_STEP;  //进入错误状态
 
     switch(step)
@@ -223,42 +323,74 @@ int8_t Car::ParkTask()
         //判断是否满足停止条件
         if(parkMethod == 0)
         {
-            if(inputs[0]<=0.3 && inputs[0]>=0
-                    && inputs[1]<=0.16 && inputs[1]>=0.06
-                    && inputs[2]<=1 && inputs[2]>=-1)
+            if(parkInputs[0]<=0.4 && parkInputs[0]>=0
+                    && parkInputs[1]<=0.16 && parkInputs[1]>=0.06
+                    && parkInputs[2]<=4 && parkInputs[2]>=-1.5)
             {
                 ServoDirectionSet(0);
                 return FINAL_STEP;
             }
             else
             {
-                carSim.phi = fuzzy::parallel::CarFuzzy.Compute(inputs);
+                carSim.phi = fuzzy::parallel::CarFuzzy.Compute(parkInputs);
             }
         }else if(parkMethod == 1)
         {
-            if(inputs[0]<=0.19 && inputs[0]>=0.06
-                    && inputs[1]<=0.25 && inputs[1]>=0
-                    && inputs[2]<=91 && inputs[2]>=89)
+            if(parkInputs[0]<=0.3 && parkInputs[0]>=-0.175
+                    && parkInputs[1]<=1.2 && parkInputs[1]>=0.06
+                    && parkInputs[2]<=110 && parkInputs[2]>=70)
+            {
+                carStatus = parkAdjust;
+            }
+            if(parkInputs[0]<=0.19 && parkInputs[0]>=0.06
+                    && parkInputs[1]<=0.25 && parkInputs[1]>=0
+                    && parkInputs[2]<=93 && parkInputs[2]>=87)
             {
                 ServoDirectionSet(0);
                 return FINAL_STEP;
             }
             else
             {
-                carSim.phi = fuzzy::perpendicular::CarFuzzy.Compute(inputs);
+                carSim.phi = fuzzy::perpendicular::CarFuzzy.Compute(parkInputs);
             }
         }
         if(parkMethod == 0)
-            ServoDirectionSet(carSim.phi/25);
+            ServoDirectionSet(carSim.phi/32);
         else
-            ServoDirectionSet(-carSim.phi/25);
+            ServoDirectionSet(-carSim.phi/33);
         break;
     default:
         break;
     }
     return step;
 }
+int8_t Car::ParkAdjustTask()
+{
+    parkInputs[0] = parkSimParam.x;
+    parkInputs[1] = parkSimParam.y;
+    parkInputs[2] = parkSimParam.theta;
 
+    if(parkMethod == 1)
+    {
+        if(parkInputs[0]<=0.19 && parkInputs[0]>=0.06
+                && parkInputs[1]<=0.3 && parkInputs[1]>=0
+                && parkInputs[2]<=92 && parkInputs[2]>=88)
+        {
+            ServoDirectionSet(0);
+            return FINAL_STEP;
+        }
+        else
+        {
+            carSim.phi = pidParkAdjust->Compute()+0.8*(parkInputs[2]-90);
+            if(carSim.phi>25)
+                carSim.phi=25;
+            else if(carSim.phi<-25)
+                carSim.phi=-25;
+        }
+    }
+    ServoDirectionSet(-carSim.phi/27);
+    return 0;
+}
 
 void Car::CommandQuery(uint32_t infraredCommand)
 {
@@ -300,5 +432,9 @@ void Car::CommandQuery(uint32_t infraredCommand)
         carStatus = park;
         parkMethod = 1;
         break;
+    case 0x00FFE01F:    //7键  调整车位
+        carStatus = parkAdjust;
+        break;
     }
+}
 }
